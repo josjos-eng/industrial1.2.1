@@ -1,0 +1,75 @@
+{
+  "Primer semestre": [
+    {"nombre": "QUIMICA GENERAL", "codigo": "QG1", "creditos": 4},
+    {"nombre": "FISICA BASICA I", "codigo": "FB1", "creditos": 4},
+    {"nombre": "DIBUJO TECNICO I", "codigo": "DT1", "creditos": 4},
+    {"nombre": "CALCULO I", "codigo": "C1", "creditos": 4},
+    {"nombre": "ALGEBRA I", "codigo": "A1", "creditos": 4}
+  ],
+  "SEGUNDO SEMESTRE": [
+    {"nombre": "QUIMICA ORGANICA", "codigo": "QO2", "prerequisito": "QG1", "creditos": 4},
+    {"nombre": "FISICA BASICA II", "codigo": "FB2", "prerequisito": ["C1", "FB1"], "creditos": 4},
+    {"nombre": "INFORMATICA I", "codigo": "I2", "prerequisito": "DT1", "creditos": 4},
+    {"nombre": "CALCULO II", "codigo": "C2", "prerequisito": "C1", "creditos": 4},
+    {"nombre": "ALGREBRA II", "codigo": "A2", "prerequisito": "A1", "creditos": 4},
+    {"nombre": "ECONOMIA GENERAL", "codigo": "EG2", "prerequisito": "A1", "creditos": 4}
+  ],
+  "TECER SEMESTRE": [
+    {"nombre": "FISICOQUIMICA", "codigo": "FQ3", "prerequisito": ["QO2", "FB2"], "creditos": 4},
+    {"nombre": "FISICA BASICA III", "codigo": "FB3", "prerequisito": ["FB2", "C2"], "creditos": 4},
+    {"nombre": "CIENCIAS DE LOS MATERIALES", "codigo": "CM3", "prerequisito": "I2", "creditos": 4},
+    {"nombre": "ECUACIONES DIFENCIALES", "codigo": "ED3", "prerequisito": "C2", "creditos": 4},
+    {"nombre": "PROBABILIDAD Y ESTADISTICA", "codigo": "PE3", "prerequisito": "A2", "creditos": 4},
+    {"nombre": "CONTABILIDAD INDUSTRIAL", "codigo": "CO3", "prerequisito": "EG2", "creditos": 4}
+  ],
+  "CUARTO SEMESTRE": [
+    {"nombre": "TERMODINAMICA TECNICA", "codigo": "TT4", "prerequisito": "FQ3", "creditos": 4},
+    {"nombre": "RESISTENCIA DE LOS MATERIALES", "codigo": "RM4", "prerequisito": ["FB3", "CM3"], "creditos": 4},
+    {"nombre": "NORMAS LEGALES", "codigo": "NL4", "prerequisito": "ED3", "creditos": 4},
+    {"nombre": "ESTADISTICA MATEMATICA", "codigo": "EM4", "prerequisito": "PE3", "creditos": 4},
+    {"nombre": "MECADOTECNIA INDUSTRIAL", "codigo": "MI4", "prerequisito": "CO3", "creditos": 4}
+  ],
+  "QUINTO SEMESTRE": [
+    {"nombre": "MAQUINAS TERMICAS", "codigo": "MT5", "prerequisito": "TT4", "creditos": 4},
+    {"nombre": "TECNOLOGIA MECANICA", "codigo": "TM5", "prerequisito": "RM4", "creditos": 4},
+    {"nombre": "ELECTROTECNIA INDUSTRIAL I", "codigo": "EI5", "prerequisito": "CM3", "creditos": 4},
+    {"nombre": "METODOLOGIA DE LA INVESTIGACION", "codigo": "MI5", "prerequisito": ["NL4", "EM4"], "creditos": 4},
+    {"nombre": "INVESTIGACION OPERATIVA I", "codigo": "IO5", "prerequisito": "EM4", "creditos": 4},
+    {"nombre": "ADMINISTRACION INDUSTRIAL", "codigo": "AI5", "prerequisito": "MI4", "creditos": 4}
+  ],
+  "SEXTO SEMESTRE": [
+    {"nombre": "OPERACIONES UNITARIAS I", "codigo": "OU6", "prerequisito": "MT5", "creditos": 4},
+    {"nombre": "ELEMENTOS DE MAQUINAS", "codigo": "EM6", "prerequisito": ["TM5", "EI5"], "creditos": 4},
+    {"nombre": "ELECTIVA I", "codigo": "EL6", "prerequisito": ["EI5", "NL4"], "creditos": 4},
+    {"nombre": "GESTION DE TALENTO", "codigo": "GT6", "prerequisito": "MI5", "creditos": 4},
+    {"nombre": "INVESTIGACION OPERATIVA II", "codigo": "IO6", "prerequisito": "IO5", "creditos": 4},
+    {"nombre": "INGENIERIA DE METODOS", "codigo": "IM6", "prerequisito": ["AI5", "MI5"], "creditos": 4}
+  ],
+  "SEPTIMO SEMESTRE": [
+    {"nombre": "OPERACIONES UNITARIAS II", "codigo": "OU7", "prerequisito": "OU6", "creditos": 4},
+    {"nombre": "CONTROL AUTOMATICO", "codigo": "CA7", "prerequisito": "EM6", "creditos": 4},
+    {"nombre": "HIGIENE Y SEGURIDAD INDUSTRIAL", "codigo": "HS7", "prerequisito": ["EL6", "EM6"], "creditos": 4},
+    {"nombre": "FINANZAS PARA LA INGENIERIA", "codigo": "FI7", "prerequisito": "GT6", "creditos": 4},
+    {"nombre": "PLANIFICACION CONTROL DE PRODUCCION I", "codigo": "PC7", "prerequisito": "IO6", "creditos": 4},
+    {"nombre": "COSTOS INDUSTRIALES I", "codigo": "CI7", "prerequisito": "IM6", "creditos": 4}
+  ],
+  "OCTAVO SEMESTRE": [
+    {"nombre": "PROCESOS INDUSTRIALES", "codigo": "PI8", "prerequisito": "OU7", "creditos": 4},
+    {"nombre": "MEDIO AMBIENTE EN LA INDUSTRIA", "codigo": "MA8", "prerequisito": "CA7", "creditos": 4},
+    {"nombre": "MANTENIMIENTO E INSTALACIONES INDUSTRIALES", "codigo": "MI8", "prerequisito": "HS7", "creditos": 4},
+    {"nombre": "PREPARACION Y EVALUACION DE PROYECTO", "codigo": "PEP8", "prerequisito": "FI7", "creditos": 4},
+    {"nombre": "PLANIFICACION CONTROL DE PRODUCCION II", "codigo": "PC8", "prerequisito": "PC7", "creditos": 4},
+    {"nombre": "COSTOS INDUSTRIALES II", "codigo": "CI8", "prerequisito": "CI7", "creditos": 4}
+  ],
+  "NOVENO SEMESTRE": [
+    {"nombre": "CONTROL DE CALIDAD", "codigo": "CC9", "prerequisito": "PI8", "creditos": 4},
+    {"nombre": "ELECTIVA II", "codigo": "EL9", "prerequisito": ["MA8", "HS7"], "creditos": 4},
+    {"nombre": "TECNOLOGIAS AVANZADAS", "codigo": "TA9", "prerequisito": "MI8", "creditos": 4},
+    {"nombre": "EMPRENDURISMO E INOVACION", "codigo": "EI9", "prerequisito": "PEP8", "creditos": 4},
+    {"nombre": "LOGISTICA", "codigo": "LO9", "prerequisito": "PC8", "creditos": 4},
+    {"nombre": "PLANEACION ESTRATEGICA", "codigo": "PE9", "prerequisito": ["CI8", "PC8"], "creditos": 4}
+  ],
+  "DECIMO SEMESTRE": [
+    {"nombre": "PRACTICAS INDUSTRIALES", "codigo": "PR10", "prerequisito": "all_noveno", "creditos": 6}
+  ]
+}
