@@ -1,0 +1,148 @@
+:root {
+  --color-approved: #77dd77;
+  --color-delayed: #ff6961;
+  --color-pending: #d6dce5;
+  --color-header: #4682b4;
+  --color-bg: #f0f8ff;
+  --color-card: #ffffff;
+  --color-text: #333;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+}
+
+.hidden {
+  display: none;
+}
+
+/* Pantalla de inicio */
+#login-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  text-align: center;
+  background: linear-gradient(135deg, #a8edea, #fed6e3);
+  animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+#login-screen input {
+  padding: 12px;
+  width: 250px;
+  border-radius: 25px;
+  border: 2px solid #ccc;
+  margin: 10px 0;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+#login-screen input:focus {
+  border-color: var(--color-header);
+  box-shadow: 0 0 8px rgba(70, 130, 180, 0.3);
+}
+
+#login-screen button {
+  padding: 12px 25px;
+  background-color: var(--color-header);
+  color: white;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: transform 0.2s ease;
+}
+
+#login-screen button:hover {
+  transform: scale(1.05);
+}
+
+header {
+  background-color: var(--color-header);
+  color: white;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.user-info {
+  font-size: 0.9em;
+  margin-top: 5px;
+}
+
+#curriculum-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.semester {
+  background-color: var(--color-card);
+  padding: 15px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  transition: transform 0.2s ease;
+}
+
+.semester:hover {
+  transform: translateY(-3px);
+}
+
+.semester h3 {
+  margin-top: 0;
+  color: var(--color-header);
+  font-size: 1.2em;
+  border-bottom: 2px solid var(--color-header);
+  padding-bottom: 5px;
+}
+
+.subject {
+  padding: 10px;
+  margin: 8px 0;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.95em;
+  position: relative;
+}
+
+.subject:hover {
+  transform: scale(1.02);
+}
+
+.state-approved {
+  background-color: var(--color-approved);
+  color: #155724;
+}
+
+.state-delayed {
+  background-color: var(--color-delayed);
+  color: #721c24;
+}
+
+.state-pending {
+  background-color: var(--color-pending);
+  color: #333;
+}
+
+.info {
+  font-size: 0.85em;
+  margin-top: 5px;
+  display: flex;
+  justify-content: space-between;
+}
