@@ -1,148 +1,334 @@
+/* 
+   ARCHIVO PRINCIPAL DE ESTILOS
+   Contiene todos los estilos de la aplicación
+*/
+
+/* Variables CSS para colores y estilos reutilizables */
 :root {
-  --color-approved: #77dd77;
-  --color-delayed: #ff6961;
-  --color-pending: #d6dce5;
-  --color-header: #4682b4;
-  --color-bg: #f0f8ff;
-  --color-card: #ffffff;
-  --color-text: #333;
+    --primary: #3498db;
+    --secondary: #2c3e50;
+    --success: #2ecc71;
+    --warning: #f39c12;
+    --danger: #e74c3c;
+    --info: #1abc9c;
+    --light: #ecf0f1;
+    --dark: #34495e;
+    --gray: #95a5a6;
+    --unregistered: #9b59b6;
+    --border-radius: 10px;
+    --box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    --transition: all 0.3s ease;
 }
 
+/* Reset y estilos base */
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
-  font-family: 'Poppins', sans-serif;
-  background-color: var(--color-bg);
-  color: var(--color-text);
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    overflow-x: hidden;
 }
 
-.hidden {
-  display: none;
+/* Contenedor principal */
+.container {
+    width: 100%;
+    max-width: 98vw;
+    background-color: white;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    overflow: hidden;
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
 }
 
-/* Pantalla de inicio */
-#login-screen {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  text-align: center;
-  background: linear-gradient(135deg, #a8edea, #fed6e3);
-  animation: fadeIn 1s ease-in-out;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-#login-screen input {
-  padding: 12px;
-  width: 250px;
-  border-radius: 25px;
-  border: 2px solid #ccc;
-  margin: 10px 0;
-  outline: none;
-  transition: all 0.3s ease;
-}
-
-#login-screen input:focus {
-  border-color: var(--color-header);
-  box-shadow: 0 0 8px rgba(70, 130, 180, 0.3);
-}
-
-#login-screen button {
-  padding: 12px 25px;
-  background-color: var(--color-header);
-  color: white;
-  border: none;
-  border-radius: 25px;
-  cursor: pointer;
-  font-weight: bold;
-  transition: transform 0.2s ease;
-}
-
-#login-screen button:hover {
-  transform: scale(1.05);
-}
-
+/* Header */
 header {
-  background-color: var(--color-header);
-  color: white;
-  padding: 20px;
-  text-align: center;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    background: linear-gradient(to right, var(--secondary), var(--primary));
+    color: white;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+    flex-shrink: 0;
+}
+
+.logo {
+    position: absolute;
+    top: 15px;
+    left: 20px;
+    font-size: 1.8rem;
+    font-weight: bold;
 }
 
 .user-info {
-  font-size: 0.9em;
-  margin-top: 5px;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
-#curriculum-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 20px;
-  padding: 20px;
+/* Páginas */
+.page {
+    display: none;
+    padding: 20px;
+    flex-grow: 1;
 }
 
-.semester {
-  background-color: var(--color-card);
-  padding: 15px;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-  transition: transform 0.2s ease;
+.active-page {
+    display: flex;
+    flex-direction: column;
 }
 
-.semester:hover {
-  transform: translateY(-3px);
+/* Página de login */
+.login-container {
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 30px;
+    background: white;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
 }
 
-.semester h3 {
-  margin-top: 0;
-  color: var(--color-header);
-  font-size: 1.2em;
-  border-bottom: 2px solid var(--color-header);
-  padding-bottom: 5px;
+/* Página de malla curricular */
+.curriculum-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: var(--light);
+    border-radius: var(--border-radius);
 }
 
-.subject {
-  padding: 10px;
-  margin: 8px 0;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  font-size: 0.95em;
-  position: relative;
+/* Contenedor del mapa conceptual */
+.concept-map-container {
+    flex-grow: 1;
+    position: relative;
+    overflow: auto;
+    background: #f8f9fa;
+    border-radius: var(--border-radius);
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.05);
+    padding: 30px;
 }
 
-.subject:hover {
-  transform: scale(1.02);
+/* Mapa conceptual - CAMBIAR AQUÍ PARA RESPONSIVE */
+.concept-map {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr); /* 10 columnas para los semestres */
+    gap: 30px;
+    min-width: 1800px; /* Ancho fijo para escritorio */
+    min-height: 700px;
+    position: relative;
 }
 
-.state-approved {
-  background-color: var(--color-approved);
-  color: #155724;
+/* Columnas de semestres */
+.semester-column {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
 }
 
-.state-delayed {
-  background-color: var(--color-delayed);
-  color: #721c24;
+/* Nodos de materias */
+.course-node {
+    padding: 15px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    cursor: pointer;
+    transition: var(--transition);
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    min-height: 120px;
 }
 
-.state-pending {
-  background-color: var(--color-pending);
-  color: #333;
+/* IMPORTANTE: Líneas de prerrequisitos - AQUÍ SE DIBUJAN LOS NODOS CONECTORES */
+.prerequisite-line {
+    position: absolute;
+    background: var(--gray);
+    height: 2px;
+    transform-origin: left center;
+    z-index: 1;
 }
 
-.info {
-  font-size: 0.85em;
-  margin-top: 5px;
-  display: flex;
-  justify-content: space-between;
+/* Detalles de materia */
+.course-detail-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid var(--light);
+}
+
+/* =============================================================== */
+/* RESPONSIVE DESIGN - AQUÍ ESTÁN LOS AJUSTES PARA DISPOSITIVOS MÓVILES */
+/* =============================================================== */
+
+/* Para tablets (hasta 1200px) */
+@media (max-width: 1200px) {
+    .concept-map-container {
+        overflow: auto;
+    }
+    
+    .concept-map {
+        grid-template-columns: repeat(5, 1fr); /* 5 columnas en tablet */
+        min-width: 1200px; /* Reducir el ancho mínimo */
+        gap: 20px; /* Reducir espacio entre columnas */
+    }
+    
+    .course-node {
+        min-height: 100px; /* Reducir altura de nodos */
+        padding: 12px;
+    }
+}
+
+/* Para tablets pequeñas y móviles grandes (hasta 992px) */
+@media (max-width: 992px) {
+    .concept-map {
+        grid-template-columns: repeat(4, 1fr); /* 4 columnas */
+        min-width: 1000px;
+        gap: 15px;
+    }
+    
+    .semester-header {
+        font-size: 0.9rem; /* Reducir tamaño de fuente */
+        padding: 8px;
+    }
+    
+    .curriculum-header {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
+
+/* Para móviles (hasta 768px) */
+@media (max-width: 768px) {
+    .concept-map {
+        grid-template-columns: repeat(3, 1fr); /* 3 columnas en móvil */
+        min-width: 800px;
+        gap: 12px;
+    }
+    
+    .course-node {
+        min-height: 90px;
+        padding: 10px;
+    }
+    
+    .course-name {
+        font-size: 0.85rem; /* Texto más pequeño */
+    }
+    
+    .stats-container {
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    
+    .stat-card {
+        min-width: 100px; /* Tarjetas más pequeñas */
+        padding: 8px 12px;
+    }
+    
+    .status-selector {
+        flex-wrap: wrap;
+    }
+    
+    .status-option {
+        flex: 0 0 calc(50% - 8px); /* 2 opciones por fila */
+        margin-bottom: 10px;
+    }
+    
+    .detail-row {
+        flex-direction: column;
+        gap: 5px;
+    }
+    
+    .detail-label {
+        flex: 0 0 100%;
+    }
+}
+
+/* Para móviles pequeños (hasta 576px) */
+@media (max-width: 576px) {
+    .concept-map {
+        grid-template-columns: repeat(2, 1fr); /* 2 columnas en móviles pequeños */
+        min-width: 600px;
+    }
+    
+    .container {
+        padding: 5px;
+        max-width: 100vw;
+    }
+    
+    body {
+        padding: 10px;
+    }
+    
+    header {
+        padding: 15px 10px;
+    }
+    
+    .logo, .user-info {
+        position: relative;
+        top: auto;
+        margin-bottom: 10px;
+    }
+    
+    h1 {
+        font-size: 1.5rem;
+    }
+}
+
+/* Para móviles muy pequeños (hasta 400px) */
+@media (max-width: 400px) {
+    .concept-map {
+        grid-template-columns: 1fr; /* 1 columna en móviles muy pequeños */
+        min-width: 300px;
+    }
+    
+    .semester-column {
+        gap: 15px;
+    }
+    
+    .login-container {
+        margin: 20px auto;
+        padding: 20px;
+    }
+}
+
+/* Mejoras adicionales para las líneas de prerrequisitos en móvil */
+@media (max-width: 768px) {
+    /* Reducir grosor de líneas en móvil */
+    .prerequisite-line {
+        height: 1px;
+    }
+    
+    /* Ajustar el contenedor para mejor scroll */
+    .concept-map-container {
+        padding: 15px;
+    }
+}
+
+/* Media query para orientación horizontal en móviles */
+@media (max-height: 600px) and (orientation: landscape) {
+    .concept-map {
+        grid-template-columns: repeat(5, 1fr);
+        min-width: 1000px;
+    }
+    
+    .course-node {
+        min-height: 80px;
+    }
 }
