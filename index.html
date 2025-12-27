@@ -1,31 +1,124 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Malla Curricular Interactiva</title>
-  <link rel="stylesheet" href="style.css"/>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Malla Curricular Dinámica - Plan 122</title>
+    <!-- Iconos de Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Enlace al archivo CSS separado -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="container">
+        <header>
+            <div class="logo">Plan 122</div>
+            <h1>Malla Curricular Dinámica</h1>
+            <div class="user-info" id="user-info">
+                <i class="fas fa-user-circle"></i>
+                <span id="username-display">Usuario</span>
+            </div>
+        </header>
+        
+        <!-- Página de inicio de sesión -->
+        <div id="login-page" class="page active-page">
+            <div class="login-container">
+                <div class="login-header">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h2>Acceso a Malla Curricular</h2>
+                    <p>Ingrese sus datos para acceder al sistema</p>
+                </div>
+                
+                <div class="form-group">
+                    <label for="student-name">Nombre Completo</label>
+                    <input type="text" id="student-name" placeholder="Ingrese su nombre completo">
+                </div>
+                
+                <div class="form-group">
+                    <label for="student-id">Número de Registro</label>
+                    <input type="text" id="student-id" placeholder="Ingrese su número de registro">
+                </div>
+                
+                <button id="login-btn" class="btn">Acceder a Malla Curricular</button>
+            </div>
+        </div>
+        
+        <!-- Página principal de la malla curricular -->
+        <div id="curriculum-page" class="page">
+            <div class="curriculum-header">
+                <h2>Malla Curricular - Plan 122</h2>
+                <div class="stats-container" id="stats-container">
+                    <!-- Las estadísticas se generarán dinámicamente -->
+                </div>
+            </div>
+            
+            <div class="concept-map-container">
+                <div class="concept-map" id="concept-map">
+                    <!-- El mapa conceptual se generará dinámicamente con JavaScript -->
+                </div>
+            </div>
+        </div>
+        
+        <!-- Página de detalle de materia -->
+        <div id="course-detail-page" class="page">
+            <div class="course-detail-header">
+                <button id="back-to-curriculum" class="back-btn">
+                    <i class="fas fa-arrow-left"></i> Volver a la Malla
+                </button>
+                <h2 id="course-detail-title">Detalle de Materia</h2>
+            </div>
+            
+            <div class="detail-card">
+                <h3>Información de la Materia</h3>
+                <div class="detail-row">
+                    <div class="detail-label">Código:</div>
+                    <div class="detail-value" id="course-code">-</div>
+                </div>
+                <div class="detail-row">
+                    <div class="detail-label">Nombre:</div>
+                    <div class="detail-value" id="course-name">-</div>
+                </div>
+                <div class="detail-row">
+                    <div class="detail-label">Semestre:</div>
+                    <div class="detail-value" id="course-semester">-</div>
+                </div>
+                <div class="detail-row">
+                    <div class="detail-label">Créditos:</div>
+                    <div class="detail-value" id="course-credits">-</div>
+                </div>
+                <div class="detail-row">
+                    <div class="detail-label">Prerrequisitos:</div>
+                    <div class="detail-value" id="course-prerequisites">-</div>
+                </div>
+            </div>
+            
+            <div class="detail-card">
+                <h3>Estado de la Materia</h3>
+                <div class="status-selector" id="status-selector">
+                    <div class="status-option no_inscrita" data-status="no_inscrita">
+                        <div class="status-icon"><i class="far fa-clock"></i></div>
+                        <div>No Inscrita</div>
+                    </div>
+                    <div class="status-option registrada" data-status="registrada">
+                        <div class="status-icon"><i class="fas fa-book"></i></div>
+                        <div>Registrada</div>
+                    </div>
+                    <div class="status-option aprobada" data-status="aprobada">
+                        <div class="status-icon"><i class="fas fa-check-circle"></i></div>
+                        <div>Aprobada</div>
+                    </div>
+                    <div class="status-option aplazada" data-status="aplazada">
+                        <div class="status-icon"><i class="fas fa-exclamation-circle"></i></div>
+                        <div>Aplazada</div>
+                    </div>
+                </div>
+                <button id="save-status-btn" class="save-btn">Guardar Estado</button>
+            </div>
+        </div>
+    </div>
 
-  <div id="login-screen">
-    <h2>Ingresar Registro Universitario (RU)</h2>
-    <input type="text" id="ru-input" placeholder="Ej: 20210423" />
-    <button onclick="startApp()">Iniciar</button>
-  </div>
-
-  <div id="app" class="hidden">
-    <header>
-      <h1>🎓 Malla Curricular Plan 122-3</h1>
-      <div class="user-info">
-        <span id="current-ru"></span>
-        <button onclick="changeUser()">Cambiar usuario</button>
-      </div>
-    </header>
-    <main id="curriculum-grid"></main>
-  </div>
-
-  <script src="script.js"></script>
+    <!-- Archivos JavaScript separados -->
+    <script src="data.js"></script>      <!-- Datos de la malla curricular -->
+    <script src="script.js"></script>    <!-- Lógica principal de la aplicación -->
 </body>
 </html>
